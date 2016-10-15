@@ -20,42 +20,35 @@ namespace mn_you.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "";
 
             return View();
         }
 
         public IActionResult Event()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Here are the following Events";
 
             return View();
         }
 
         public IActionResult Vender()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Venders";
 
             return View();
         }
 
         public IActionResult SignUp()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Sign up to MN-you";
 
             return View();
         }
 
         public IActionResult Login()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Login to MN-You";
 
             return View();
         }

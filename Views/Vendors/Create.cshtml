@@ -1,0 +1,27 @@
+@model mn_you.Models.SQLite.Vendor
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register your vendor below</h1>
+
+
+@using (@Html.BeginForm()) {
+
+    if (ViewBag.method == "POST") {
+        @Html.ValidationSummary()
+    }
+
+    <div>
+        Name: @Html.EditorFor(v => v.Name, new { @class = "inputfield" })
+    </div>
+    <div>
+        Email: @Html.EditorFor(v => v.Email, new { @class = "inputfield" })
+    </div>
+    <div>
+        Password: @Html.EditorFor(v => v.Password, new { @class = "inputfield" })
+    </div>
+    <div>
+        <button type='submit'>Submit</button>
+    </div>
+}

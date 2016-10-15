@@ -1,0 +1,11 @@
+@model List<mn_you.Models.SQLite.Vendor>
+
+<h1>List of vendors</h1>
+
+<p>There are @Model.Count() total vendors</p>
+
+<ul>
+  @foreach (var vendor in Model) {
+    <li>@vendor.Name</li>
+  }
+</ul>

@@ -1,21 +1,51 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    color: #220f02;
+    background-color: #F4EBE4;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+
+footer {
+    background-color: #430403;
+    color: #DDB65A;
+    font-size: 12px;
+    padding-top: 10px;
+    margin-top: 20px;
+    text-align: right;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
+
+.social-media-icons a { font-size: 32px; color: #de8932; }
+
+.footer-left{
+    text-align: left; 
 }
+
+.footer-left a{
+    color: #DDB65A;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+
+.btn-orange {
+    background-color: #de8932;
+    color: #fff;
+}
+.btn-orange:hover {
+    background-color: #ce7932;
+    color: #fff;
+}
+
+/*Change login button color*/
+#sign-up{
+    background-color: #de8932;
+    color: #ffffff;
+}
+
 
 /* Carousel */
 .carousel-caption p {
@@ -27,6 +57,21 @@ textarea {
 .carousel-inner .item img[src$=".svg"]
 {
     width: 100%;
+}
+
+/* Vendors CSS*/
+
+.vendor-content {
+    background-color: #f4ebe4
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
 }
 
 /* Hide/rearrange for smaller screens */

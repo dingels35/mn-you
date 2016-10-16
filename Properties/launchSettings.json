@@ -18,9 +18,11 @@
     "mn_you": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5000",
+      "launchUrl": "http://localhost:5001",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "STORMPATH_CLIENT_APIKEY_ID": "3RVJ7EE24RBOEXQ05CR7AN4F4",
+        "STORMPATH_CLIENT_APIKEY_SECRET": "MTvBye6/dxVCOTn/JNjLM5VGy0FZlqotkgtwqTDs+dY"
       }
     }
   }

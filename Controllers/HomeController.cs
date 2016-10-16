@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using mn_you.Models.SQLite;
 
 namespace mn_you.Controllers
 {
@@ -10,19 +11,23 @@ namespace mn_you.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            List<Vendor> vendors;
+            using (var db = new MnyouContext()) {
+                vendors = db.Vendors.Take(5).ToList();
+            }
+            return View(vendors);
         }
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "";
 
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Event()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Here are the following Events";
 
             return View();
         }
@@ -31,5 +36,6 @@ namespace mn_you.Controllers
         {
             return View();
         }
+
     }
 }

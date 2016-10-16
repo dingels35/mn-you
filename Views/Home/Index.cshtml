@@ -1,6 +1,47 @@
 @{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+<div style="background-color: #DDB65A">
+    <div style="background: url('images/trees.png') repeat-x top center; height: 180px; padding-top: 50px;">
+        <div class="container">
+            @Html.Partial("_SearchForm")
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-7 col-sm-5" style="padding-top: 60px;">
+                <h1>MNyou</h1>
+                <p>Conceived in the heart of West Central, Minnesota, MNyou (pronounced menu) is a one stop shop for locally produced goods.</p>
+                <p><a asp-controller="Home" asp-action="About">Learn more</a></p>
+            </div>
+            <div class="col-xs-offset-1 col-xs-4 col-sm-6" style="bottom: 0;">
+                <img src="images/minnesota-icon.png" style='margin-bottom: -20px;' class="img-responsive" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h2 style="margin-top: 40px; margin-bottom: 40px; ">What are you looking for?</h2>
+    <div class="row text-center">
+        <div class="col-sm-3" style="padding-top: 25px;">
+            <img src="images/cown-icon.png" class="img-responsive center-block" />
+        </div>
+        <div class="col-sm-3">
+            <img src="images/corn-icon.png" class="img-responsive center-block" />
+        </div>
+        <div class="col-sm-3">
+            <img src="images/jar-icon.png" class="img-responsive center-block" />
+        </div>
+        <div class="col-sm-3">
+            <img src="images/dude-icon.png" class="img-responsive center-block" />
+        </div>
+    </div>
+    <div class="row text-center" style="margin-top: 15px;">
+        <div class="col-sm-3">animals</div>
+        <div class="col-sm-3">produce</div>
+        <div class="col-sm-3">condiments</div>
+        <div class="col-sm-3">all vendors</div>
+    </div>
 
-<h1>Welcome to mnyou</h1>
-<p>More stuff to come</p>
+</div>

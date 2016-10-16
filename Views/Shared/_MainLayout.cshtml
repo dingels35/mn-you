@@ -52,7 +52,33 @@
     <hr />
     <footer>
         <div class="container">
-          <p>&copy; 2016</p>
+            <div class="row">
+                <div class="col-sm-3" style="padding-bottom: 25px;">
+                    <div class="footer-left">
+                        <a href="/">Home</a></br>
+                        <a href="/home/about">About</a></br>
+                        <a href="/vendors">Vendors</a></br>
+                        <a href="/home/event">Events</a></br>
+                        <a href="/vendors/login">Login</a></br>
+                        <a href="/vendors/create">Sign Up</a></br>
+                    </div> 
+                </div>
+                <div class="col-sm-6"  style="padding-top: 25px;">
+                    <div class="footer-center">
+                        <a class="img-responsive center-block" asp-controller="Home" asp-action="Index" class="navbar-brand"><img src="~/images/logo.png" alt="logo" /></a>
+                    </div>    
+                </div>
+                <div class="col-sm-3"  style="padding-bottom: 25px;">
+                    <address>
+                        MNyou<br />
+                        Willmar, MN 56201<br />
+                        Phone: 320-555-0100
+                        </address>
+        
+                </div>
+    
+                <p>&copy; 2016</p>
+            </div>
         </div>
     </footer>
 

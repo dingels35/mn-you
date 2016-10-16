@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -58,6 +59,10 @@ namespace mn_you
                 AutomaticAuthenticate = true,
                 AutomaticChallenge = true
             });
+
+            using (var context = new MnyouContext()) {
+                context.Database.Migrate();
+            }
 
             app.UseStaticFiles();
 

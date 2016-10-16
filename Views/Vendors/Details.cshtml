@@ -5,10 +5,20 @@
 
 <h1>@Model.Name</h1>
 
-<p>@Model.Bio</p>
 
-<p>
-  @Model.Address<br />
-  @Model.City, @Model.State @Model.Zip
-</p>
+<div class="row">
+  <div class="col-sm-6">
+    <p>@Model.Bio</p>
+    <p>
+      @Model.Address<br />
+      @Model.City, @Model.State @Model.Zip
+    </p>
+  </div>
+  <div class="col-sm-6">
+    @if (!string.IsNullOrEmpty(Model.Address)) {
+      <iframe frameborder="0" style="border:0; width: 100%; min-height: 200px;" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDrOW9Oxojr0i9c4q9LuJQq7q5Xim5ouoY
+    &q=@Model.FullAddress" allowfullscreen></iframe>
+    }
+  </div>
+</div>
 

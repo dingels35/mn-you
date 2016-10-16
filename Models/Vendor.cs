@@ -29,6 +29,16 @@ namespace mn_you.Models.SQLite
         public string Slug { get; set; }
 
 
+        private string _FullAddress;
+        public string FullAddress {
+            get {
+                if (_FullAddress == null) {
+                    _FullAddress = string.Format("{0}, {1}, {2} {3}", Address, City, State, Zip);
+                }
+                return _FullAddress;
+            }
+        }
+
         public void GenerateSlug() {
             string str = Name.ToLower();
             // invalid chars

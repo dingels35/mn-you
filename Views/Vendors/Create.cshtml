@@ -7,7 +7,7 @@
     Vendor Registration
 </h1>
 <p class="vendorsClass">
-    Please enter your Vendor Name, Email, and create a password before submiting to Register your Vender.
+    Please enter your vendor name, email, and create a password before submiting to register your vendor.
 </p>
 
 @using (@Html.BeginForm()) {
@@ -15,20 +15,29 @@
     if (ViewBag.method == "POST") {
         @Html.ValidationSummary()
     }
-
-    <div>
-        Name: @Html.EditorFor(v => v.Name, new { @class = "inputfield" })
-    </div>
-    <br />
-    <div>
-        Email: @Html.EditorFor(v => v.Email, new { @class = "inputfield" })
-    </div>
-    <br />
-    <div>
-        Password: @Html.EditorFor(v => v.Password, new { @class = "inputfield" })
-    </div>
-    <br />
-    <div>
-        <button type='submit'>Submit</button>
-    </div>
+    <body class="vendor-content">
+        <div class="container">
+            <div class="vendorsClass">
+                <label> Vendor Name: <br />
+                @Html.EditorFor(v => v.Name, new { @class = "inputfield" })
+                </label>
+            </div>
+            <br />
+            <div class="vendorsClass">
+                <label> User Email: <br />
+                @Html.EditorFor(v => v.Email, new { @class = "inputfield" })
+                </label>
+            </div>
+            <br />
+            <div class="vendorsClass">
+                <label> Create Password:<br />
+                @Html.EditorFor(v => v.Password, new { @class = "inputfield" })
+                <label>
+            </div>
+            <br />
+            <div class="vendorsClass">
+                <button type='submit'>Submit</button>
+            </div>
+        </div>
+    </body>
 }

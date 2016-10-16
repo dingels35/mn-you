@@ -28,6 +28,14 @@ namespace mn_you.Models.SQLite
         [DataTypeAttribute(DataType.MultilineText)]
         public string Slug { get; set; }
 
+        [UrlAttribute]
+        public string FacebookUrl { get; set; }
+
+        [UrlAttribute]
+        public string TwitterUrl { get; set; }
+
+        [UrlAttribute]
+        public string InstagramUrl { get; set; }
 
         private string _FullAddress;
         public string FullAddress {
@@ -60,6 +68,9 @@ namespace mn_you.Models.SQLite
             State = vendor.State;
             Zip = vendor.Zip;
             Bio = vendor.Bio;
+            FacebookUrl = vendor.FacebookUrl;
+            InstagramUrl = vendor.InstagramUrl;
+            TwitterUrl = vendor.TwitterUrl;
         }
 
 

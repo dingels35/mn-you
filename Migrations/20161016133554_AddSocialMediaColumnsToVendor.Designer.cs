@@ -8,9 +8,10 @@ using mn_you.Models.SQLite;
 namespace mnyou.Migrations
 {
     [DbContext(typeof(MnyouContext))]
-    partial class MnyouContextModelSnapshot : ModelSnapshot
+    [Migration("20161016133554_AddSocialMediaColumnsToVendor")]
+    partial class AddSocialMediaColumnsToVendor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
@@ -31,7 +32,7 @@ namespace mnyou.Migrations
 
                     b.Property<string>("FacebookUrl");
 
-                    b.Property<string>("InstgramUrl");
+                    b.Property<string>("InstagramUrl");
 
                     b.Property<string>("Name")
                         .IsRequired();

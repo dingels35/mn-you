@@ -15,6 +15,8 @@ footer {
     text-align: right;
 }
 
+.social-media-icons a { font-size: 32px; color: #de8932; }
+
 .btn-orange {
     background-color: #de8932;
     color: #fff;

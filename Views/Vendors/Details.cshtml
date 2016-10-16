@@ -13,6 +13,17 @@
       @Model.Address<br />
       @Model.City, @Model.State @Model.Zip
     </p>
+    <p class="social-media-icons">
+      @if (!string.IsNullOrEmpty(Model.FacebookUrl)) {
+        <a href="@Model.FacebookUrl"><i class='fa fa-facebook-square'></i></a>
+      }
+      @if (!string.IsNullOrEmpty(Model.TwitterUrl)) {
+        <a href="@Model.TwitterUrl"><i class='fa fa-twitter-square'></i></a>
+      }
+      @if (!string.IsNullOrEmpty(Model.InstagramUrl)) {
+        <a href="@Model.InstagramUrl"><i class='fa fa-instagram'></i></a>
+      }
+      </p>
   </div>
   <div class="col-sm-6">
     @if (!string.IsNullOrEmpty(Model.Address)) {

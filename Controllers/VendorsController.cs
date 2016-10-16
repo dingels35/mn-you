@@ -24,6 +24,14 @@ namespace mn_you.Controllers
             return View(vendors);
         }
 
+        public IActionResult Search(string q) {
+            List<Vendor> vendors;
+            using (var db = new MnyouContext()) {
+                vendors = db.Vendors.Where(v => v.Name.Contains(q) || v.Bio.Contains(q)).ToList();
+            }
+            return View("Index", vendors);
+        }
+
         public IActionResult Details(string id) {
             Vendor vendor;
             using(var db = new MnyouContext()) {

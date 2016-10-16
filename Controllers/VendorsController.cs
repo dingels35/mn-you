@@ -49,6 +49,7 @@ namespace mn_you.Controllers
                     db.Vendors.Add(vendor);
                     db.SaveChanges();
                 }
+                LogInVendor(vendor);
                 return RedirectToAction("ThankYou");
             }
             return View(vendor);
@@ -58,30 +59,25 @@ namespace mn_you.Controllers
         [Authorize]
         public IActionResult Edit() {
             ViewBag.method = Request.Method;
-            Vendor vendor;
-            using(var db = new MnyouContext()) {
-                var userId = User.Claims.First(c => c.Type == ClaimTypes.PrimarySid).Value;
-                vendor = db.Vendors.First(v => v.VendorId == Int32.Parse(userId));
-            }
-            return View(vendor);
+            return View(GetLoggedInVendor());
         }
 
         [Authorize, HttpPostAttribute]
         public IActionResult Edit(Vendor postedVendor) {
             ViewBag.method = Request.Method;
-            Vendor vendor;
-            using(var db = new MnyouContext()) {
-                var userId = User.Claims.First(c => c.Type == ClaimTypes.PrimarySid).Value;
-                vendor = db.Vendors.First(v => v.VendorId == Int32.Parse(userId));
-                vendor.CopyValuesFrom(postedVendor);
+            var vendor = GetLoggedInVendor();
+            vendor.CopyValuesFrom(postedVendor);
 
-                ModelState.Clear();
-                TryValidateModel(vendor);
-                if (ModelState.IsValid) {
+            ModelState.Clear();
+            TryValidateModel(vendor);
+
+            if (ModelState.IsValid) {
+                using(var db = new MnyouContext()) {
                     vendor.GenerateSlug();
                     db.Vendors.Update(vendor);
                     db.SaveChanges();
                 }
+                ModelState.AddModelError("base","Your changes have been saved.");
             }
 
             return View(vendor);
@@ -89,11 +85,6 @@ namespace mn_you.Controllers
 
         // [Authorize]
         public IActionResult ThankYou() {
-
-            // User.Identity.Name
-            ViewBag.foo = User.Claims;// ControllerContext.HttpContext.Authentication.GetAuthenticateInfoAsync("MyCookieMiddlewareInstance");
-            // ViewBag.bar = User.Claims.First(c => c.Type == ClaimTypes.PrimarySid).Value;
-
             return View();
         }
 
@@ -105,14 +96,7 @@ namespace mn_you.Controllers
                 using (var db = new MnyouContext()) {
                     var vendor = db.Vendors.FirstOrDefault(v => v.Email == vm.Email && v.Password == vm.Password);
                     if (vendor != null) {
-                        ModelState.AddModelError("base","Test");
-                        var claims = new List<Claim> {
-                            new Claim(ClaimTypes.PrimarySid, vendor.VendorId.ToString()),
-                            new Claim(ClaimTypes.Name, vendor.Name)
-                        };
-                        var identity = new ClaimsIdentity(claims, "Basic");
-                        var principal = new ClaimsPrincipal(identity);
-                        HttpContext.Authentication.SignInAsync("MyCookieMiddlewareInstance", principal);
+                        LogInVendor(vendor);
                         return RedirectToAction("Details", new { id = vendor.Slug });
                     } else {
                         ModelState.AddModelError("base", "Your email address or password could not be found.");
@@ -128,6 +112,24 @@ namespace mn_you.Controllers
         public IActionResult LogOut() {
             HttpContext.Authentication.SignOutAsync("MyCookieMiddlewareInstance");
             return RedirectToAction("Index","Home");
+        }
+
+
+        private void LogInVendor(Vendor vendor) {
+            var claims = new List<Claim> {
+                new Claim(ClaimTypes.PrimarySid, vendor.VendorId.ToString()),
+                new Claim(ClaimTypes.Name, vendor.Name)
+            };
+            var identity = new ClaimsIdentity(claims, "Basic");
+            var principal = new ClaimsPrincipal(identity);
+            HttpContext.Authentication.SignInAsync("MyCookieMiddlewareInstance", principal);
+        }
+
+        private Vendor GetLoggedInVendor() {
+            using(var db = new MnyouContext()) {
+                var userId = User.Claims.First(c => c.Type == ClaimTypes.PrimarySid).Value;
+                return db.Vendors.First(v => v.VendorId == Int32.Parse(userId));
+            }
         }
     }
 }

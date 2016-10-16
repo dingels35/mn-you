@@ -1,16 +1,6 @@
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Thank You";
 }
-
 
 <h1>Thank you for signing up</h1>
-<p><a href='/'>return to home page</a></p>
-<hr />
-<p>@ViewBag.foo</p>
-
-@foreach(var claim in ViewBag.foo) {
-    <div>@claim.Type</div>
-}
-<hr />
-<div>@ViewBag.bar</div>
-<hr />
+<p><a asp-controller="Vendors" asp-action="Edit">Complete profile</a></p>

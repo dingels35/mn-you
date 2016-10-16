@@ -8,8 +8,8 @@ using mn_you.Models.SQLite;
 namespace mnyou.Migrations
 {
     [DbContext(typeof(MnyouContext))]
-    [Migration("20161015180745_AddFieldsToVendor")]
-    partial class AddFieldsToVendor
+    [Migration("20161016034313_CreateVendor")]
+    partial class CreateVendor
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,11 +27,16 @@ namespace mnyou.Migrations
 
                     b.Property<string>("City");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
-                    b.Property<string>("Password");
+                    b.Property<string>("Password")
+                        .IsRequired();
+
+                    b.Property<string>("Slug");
 
                     b.Property<string>("State");
 

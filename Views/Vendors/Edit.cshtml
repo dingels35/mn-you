@@ -1,0 +1,57 @@
+@model mn_you.Models.SQLite.Vendor
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<h1>
+    Edit Vendor Profile
+</h1>
+
+@using (@Html.BeginForm()) {
+
+    if (ViewBag.method == "POST") {
+        @Html.ValidationSummary()
+    }
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+          <label>Name:</label>
+          @Html.EditorFor(v => v.Name, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+      <div class="col-sm-6 form-group">
+          <label>Email Address:</label>
+          @Html.EditorFor(v => v.Email, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-xs-12">
+        <label>Address:</label>
+        @Html.EditorFor(v => v.Address, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label>City:</label>
+        @Html.EditorFor(v => v.City, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+      <div class="form-group col-sm-2">
+        <label>State:</label>
+        @Html.EditorFor(v => v.State, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+      <div class="form-group col-sm-4">
+        <label>Zip:</label>
+        @Html.EditorFor(v => v.Zip, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+    </div>
+    <div class="form-group">
+        <label>Bio:</label>
+        @Html.EditorFor(v => v.Bio, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+
+
+    <button type='submit' class="btn btn-default">Submit</button>
+
+}

@@ -22,12 +22,6 @@ header {
     color: #ffffff;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
 
 /* Carousel */
 .carousel-caption p {
@@ -47,10 +41,6 @@ textarea {
     background-color: #f4ebe4
 }
 
-.vendorsClass {
-    text-align: center;
-}
-
 .navbar-brand {
   padding: 0px;
 }
@@ -59,7 +49,6 @@ textarea {
   padding: 15px;
   width: auto;
 }
-
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {

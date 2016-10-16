@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace mnyou.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class CreateVendor : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,15 @@ namespace mnyou.Migrations
                 {
                     VendorId = table.Column<int>(nullable: false)
                         .Annotation("Autoincrement", true),
-                    Name = table.Column<string>(nullable: true)
+                    Address = table.Column<string>(nullable: true),
+                    Bio = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: false),
+                    Slug = table.Column<string>(nullable: true),
+                    State = table.Column<string>(nullable: true),
+                    Zip = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

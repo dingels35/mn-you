@@ -1,0 +1,24 @@
+@model mn_you.ViewModels.Vendors.LogInViewModel
+@{
+    ViewData["Title"] = "Log In";
+}
+
+<h1>Log In</h1>
+
+
+@using (@Html.BeginForm()) {
+
+    if (ViewBag.method == "POST") {
+        @Html.ValidationSummary()
+    }
+
+    <div>
+        Email: @Html.EditorFor(v => v.Email, new { @class = "inputfield" })
+    </div>
+    <div>
+        Password: @Html.EditorFor(v => v.Password, new { @class = "inputfield" })
+    </div>
+    <div>
+        <button type='submit'>Log In</button>
+    </div>
+}

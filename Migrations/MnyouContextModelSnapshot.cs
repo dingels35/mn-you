@@ -26,11 +26,16 @@ namespace mnyou.Migrations
 
                     b.Property<string>("City");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
-                    b.Property<string>("Password");
+                    b.Property<string>("Password")
+                        .IsRequired();
+
+                    b.Property<string>("Slug");
 
                     b.Property<string>("State");
 

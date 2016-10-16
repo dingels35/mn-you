@@ -37,8 +37,13 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Event">Event</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
-                    <li><a id="sign-up" asp-area="" asp-controller="Vendors" asp-action="Create">Sign Up</a></li>
+                    @if (User.Identity.IsAuthenticated) {
+                        <li><a asp-controller="Vendors" asp-action="Edit">@User.Identity.Name</a></li>
+                        <li><a asp-controller="Vendors" asp-action="LogOut">log out</a></li>
+                    } else {
+                        <li><a asp-area="" asp-controller="Vendors" asp-action="LogIn">Login</a></li>
+                        <li><a id="sign-up" asp-area="" asp-controller="Vendors" asp-action="Create">Sign Up</a></li>
+                    }
                 </ul>
             </div>
         </div>

@@ -3,41 +3,33 @@
     ViewData["Title"] = "Register";
 }
 
-<h1 class="vendorsClass">
-    Vendor Registration
-</h1>
-<p class="vendorsClass">
-    Please enter your vendor name, email, and create a password before submiting to register your vendor.
-</p>
+<h1>Vendor Registration</h1>
+<p>Please enter your vendor name, email, and create a password before submiting to register your vendor.</p>
 
 @using (@Html.BeginForm()) {
+  if (ViewBag.method == "POST") {
+    @Html.ValidationSummary()
+  }
 
-    if (ViewBag.method == "POST") {
-        @Html.ValidationSummary()
-    }
-    <body class="vendor-content">
-        <div class="container">
-            <div class="vendorsClass">
-                <label> Vendor Name: <br />
-                @Html.EditorFor(v => v.Name, new { @class = "inputfield" })
-                </label>
-            </div>
-            <br />
-            <div class="vendorsClass">
-                <label> User Email: <br />
-                @Html.EditorFor(v => v.Email, new { @class = "inputfield" })
-                </label>
-            </div>
-            <br />
-            <div class="vendorsClass">
-                <label> Create Password:<br />
-                @Html.EditorFor(v => v.Password, new { @class = "inputfield" })
-                <label>
-            </div>
-            <br />
-            <div class="vendorsClass">
-                <button type='submit'>Submit</button>
-            </div>
-        </div>
-    </body>
+  <div class="row">
+    <div class="form-group col-xs-12">
+      <label>Name</label>
+      @Html.EditorFor(v => v.Name, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-xs-12">
+      <label>Email</label>
+      @Html.EditorFor(v => v.Email, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-xs-12">
+      <label>Password</label>
+      @Html.EditorFor(v => v.Password, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+  </div>
+  <button type='submit' class="btn btn-default">Submit</button>
+
 }

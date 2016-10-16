@@ -5,20 +5,23 @@
 
 <h1>Log In</h1>
 
-
 @using (@Html.BeginForm()) {
 
-    if (ViewBag.method == "POST") {
-        @Html.ValidationSummary()
-    }
+  if (ViewBag.method == "POST") {
+    @Html.ValidationSummary()
+  }
 
-    <div>
-        Email: @Html.EditorFor(v => v.Email, new { @class = "inputfield" })
+  <div class="row">
+    <div class="form-group col-md-4">
+      <label>Email</label>
+      @Html.EditorFor(v => v.Email, new { htmlAttributes = new { @class = "form-control" } })
     </div>
-    <div>
-        Password: @Html.EditorFor(v => v.Password, new { @class = "inputfield" })
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <label>Password</label>
+      @Html.EditorFor(v => v.Password, new { htmlAttributes = new { @class = "form-control" } })
     </div>
-    <div>
-        <button type='submit'>Log In</button>
-    </div>
+  </div>
+  <button type='submit' class="btn btn-default">Log In</button>
 }

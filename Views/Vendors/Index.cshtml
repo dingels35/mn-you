@@ -2,20 +2,14 @@
 
 <h1>Vendors</h1>
 
-@foreach (var vendor in Model) {
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">@vendor.Name</h3>
-    </div>
-    <div class="panel-body row">
-      <div class="col-sm-8">
-        <p>@vendor.Bio</p>
-        <p><a asp-controller="Vendors" asp-action="Details" asp-route-id="@vendor.Slug">view details</a></p>
-      </div>
-      <div class="col-sm-4">
-        @vendor.Address<br />
-        @vendor.City, @vendor.State @vendor.Zip
-      </div>
-    </div>
-  </div>
-}
+
+<div class="list-group">
+  @foreach (var vendor in Model) {
+    <a asp-controller="Vendors" asp-action="Details" asp-route-id="@vendor.Slug" class="list-group-item">
+      <h4 class="list-group-item-heading">@vendor.Name</h4>
+      <p class="list-group-item-text">
+        @vendor.Bio.Substring(0, Math.Min(@vendor.Bio.Length, 130)) ...
+      </p>
+    </a>
+  }
+</div>

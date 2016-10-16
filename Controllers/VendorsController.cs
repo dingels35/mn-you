@@ -19,7 +19,7 @@ namespace mn_you.Controllers
         {
             List<Vendor> vendors;
             using (var db = new MnyouContext()) {
-                vendors = db.Vendors.ToList();
+                vendors = db.Vendors.OrderBy(v => v.Name).ToList();
             }
             return View(vendors);
         }

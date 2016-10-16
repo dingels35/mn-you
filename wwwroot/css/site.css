@@ -6,6 +6,13 @@ body {
 }
 
 
+footer {
+    background-color: #430403;
+    color: #DDB65A;
+    font-size: 12px;
+    padding-top: 10px;
+    text-align: right;
+}
 
 
 /*Change login button color*/

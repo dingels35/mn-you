@@ -5,18 +5,7 @@
 <div style="background-color: #DDB65A">
     <div style="background: url('images/trees.png') repeat-x top center; height: 180px; padding-top: 50px;">
         <div class="container">
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1">
-                    @using (@Html.BeginForm("Search", "Vendors", FormMethod.Get)) {
-                        <div class="input-group">
-                            <input type="text" name="q" class="form-control" placeholder="search for vendors, foods, or events" />
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default btn-orange">Search</button>
-                            </div>
-                        </div>
-                    }
-                </div>
-            </div>
+            @Html.Partial("_SearchForm")
         </div>
     </div>
     <div class="container">

@@ -14,7 +14,6 @@ namespace mn_you.Controllers
     public class VendorsController : Controller
     {
 
-
         public IActionResult Index()
         {
             List<Vendor> vendors;
@@ -25,11 +24,14 @@ namespace mn_you.Controllers
         }
 
         public IActionResult Search(string q) {
+            ViewBag.SearchString = q;
             List<Vendor> vendors;
             using (var db = new MnyouContext()) {
-                vendors = db.Vendors.Where(v => v.Name.Contains(q) || v.Bio.Contains(q)).ToList();
+                vendors = db.Vendors.Where(v =>
+                    v.Name.Contains(q) || v.Bio.Contains(q) || v.City.Contains(q)
+                ).OrderBy(v => v.Name).ToList();
             }
-            return View("Index", vendors);
+            return View(vendors);
         }
 
         public IActionResult Details(string id) {

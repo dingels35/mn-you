@@ -15,7 +15,21 @@ footer {
     text-align: right;
 }
 
+
 .social-media-icons a { font-size: 32px; color: #de8932; }
+
+.footer-left{
+    text-align: left; 
+}
+
+.footer-left a{
+    color: #DDB65A;
+}
+
+.footer-center {
+    text-align: center;
+}
+
 
 .btn-orange {
     background-color: #de8932;

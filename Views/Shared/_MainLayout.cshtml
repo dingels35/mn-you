@@ -56,22 +56,24 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-sm-3" style="padding-bottom: 25px;">
+                <div class="col-xs-3" style="padding-bottom: 25px;">
                     <div class="footer-left">
-                        <a href="/">Home</a></br>
-                        <a href="/home/about">About</a></br>
-                        <a href="/vendors">Vendors</a></br>
-                        <a href="/home/event">Events</a></br>
-                        <a href="/vendors/login">Login</a></br>
-                        <a href="/vendors/create">Sign Up</a></br>
+                        <a asp-controller="Home" asp-action="Index">Home</a><br>
+                        <a asp-controller="Home" asp-action="About">About</a><br>
+                        <a asp-controller="Vendors" asp-action="Index">Vendors</a><br>
+                        <a asp-controller="Home" asp-action="Event">Events</a><br>
+                         @if (!User.Identity.IsAuthenticated) {
+                        <a asp-controller="Vendors" asp-action="LogIn">Login</a><br>
+                        <a asp-controller="Vendors" asp-action="Create">Sign Up</a>
+                        }
                     </div> 
                 </div>
-                <div class="col-sm-6"  style="padding-top: 25px;">
+                <div class="col-xs-6"  style="padding-top: 25px;">
                     <div class="footer-center">
                         <a class="img-responsive center-block" asp-controller="Home" asp-action="Index" class="navbar-brand"><img src="~/images/logo.png" alt="logo" /></a>
                     </div>    
                 </div>
-                <div class="col-sm-3"  style="padding-bottom: 25px;">
+                <div class="col-xs-3"  style="padding-bottom: 25px;">
                     <address>
                         MNyou<br />
                         Willmar, MN 56201<br />

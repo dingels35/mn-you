@@ -32,27 +32,6 @@ namespace mn_you.Controllers
             return View();
         }
 
-        public IActionResult Vender()
-        {
-            ViewData["Message"] = "Venders";
-
-            return View();
-        }
-
-        public IActionResult SignUp()
-        {
-            ViewData["Message"] = "Sign up to MN-you";
-
-            return View();
-        }
-
-        public IActionResult Login()
-        {
-            ViewData["Message"] = "Login to MN-You";
-
-            return View();
-        }
-
         public IActionResult Error()
         {
             return View();

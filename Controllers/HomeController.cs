@@ -32,7 +32,7 @@ namespace mn_you.Controllers
             return View();
         }
 
-        public IActionResult Catagories()
+        public IActionResult Categories()
         {
             ViewData["Message"] = "Search by Categories";
 

@@ -32,6 +32,13 @@ namespace mn_you.Controllers
             return View();
         }
 
+        public IActionResult Catagories()
+        {
+            ViewData["Message"] = "Search by Categories";
+
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View();

@@ -27,7 +27,7 @@ namespace mn_you.Controllers
 
         public IActionResult Event()
         {
-            ViewData["Message"] = "Here are the following Events";
+            ViewData["Message"] = "Event Calender";
 
             return View();
         }
